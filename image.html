@@ -1,0 +1,52 @@
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+<script>  
+    $(document).ready(function (e) {  
+    $("#uplo").on('submit', (function(e) { 
+    e.preventDefault();
+            $.ajax({
+            url: "http://localhost:3450/image",  
+                    type: "POST", 
+                    data: new FormData(this), 
+                    contentType: false, 
+                    cache: false, 
+                    processData:false, 
+                    success: function(data)   
+                    { 
+                    alert("Image Uploaded successfully"); 
+                    } 
+            }); 
+    })); 
+    }); 
+</script>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.get("http://localhost:3450/file", function(data, status){
+      alert(avatar);
+    });
+  });
+});
+</script>
+</head>
+<body>
+
+<button>Send an HTTP GET request to a page and get the result back</button>
+
+</body> -->
+
+
+<form id="uplo" action="" method="post" enctype="multipart/form-data"> 
+
+    
+    <div>  Image  <input type="file"  id="avatar" name="avatar" class="file_upload3" /><span id="file_error3"></span></div><br>
+
+<div style="text-align:center;">
+    <button type="reset" class="btn " style="background-color: gray ;">Reset</button>&nbsp;&nbsp;&nbsp;
+    <button type="submit" class="btn " style="background-color: steelblue;">Submit</button>
+</div>
+
+</form>
+
